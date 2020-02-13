@@ -1,6 +1,6 @@
 # Backend Template
 
-## Features:
+## Features
 
 - Backend - [Express.js](https://expressjs.com/)
 - Http request logger middleware - [morgan](https://github.com/expressjs/morgan)
