@@ -4,6 +4,10 @@
 
 - Backend - [express.js](https://expressjs.com/)
 
+- Node.js CORS middleware - [cors](https://github.com/expressjs/cors)
+
+- MongoDB object modeling - [mongoose](https://github.com/Automattic/mongoose)
+
 - Http request logger middleware - [morgan](https://github.com/expressjs/morgan)
 
 - Loads environment variables from .env - [dotenv](https://github.com/motdotla/dotenv)
