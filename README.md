@@ -25,3 +25,5 @@
 * Code formatter - [prettier](https://prettier.io/)
 
 * CRUD Operations
+
+* API Features: Filtering, Sorting, Limiting Fields and Pagination
