@@ -1,8 +1,6 @@
 const express = require('express');
 
 const {
-  checkID,
-  checkBody,
   getAllUsers,
   createUser,
   getUser,
@@ -11,12 +9,10 @@ const {
 } = require(`./../controllers/userController`);
 const router = express.Router();
 
-router.param('id', checkID);
-
 router
   .route('/')
   .get(getAllUsers)
-  .post(checkBody, createUser);
+  .post(createUser);
 
 router
   .route('/:id')

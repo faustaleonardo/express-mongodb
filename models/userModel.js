@@ -19,6 +19,6 @@ const userSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now(), select: false }
 });
 
-const userModel = mongoose.model(userSchema, 'User');
+const userModel = mongoose.model('User', userSchema);
 
 module.exports = userModel;
