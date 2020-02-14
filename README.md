@@ -23,3 +23,5 @@
 * Javascript style guide - [eslint config airbnb](https://www.npmjs.com/package/eslint-config-airbnb). Dependencies - [eslint plugin import](https://github.com/benmosher/eslint-plugin-import) | [eslint plugin jsx ally](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) | [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react)
 
 * Code formatter - [prettier](https://prettier.io/)
+
+* CRUD Operations
