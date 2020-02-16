@@ -1,6 +1,7 @@
 const express = require('express');
 
 const {
+  getYoungUsers,
   getAllUsers,
   createUser,
   getUser,
@@ -8,6 +9,8 @@ const {
   deleteUser
 } = require(`./../controllers/userController`);
 const router = express.Router();
+
+router.route('/young-users').get(getYoungUsers);
 
 router
   .route('/')
