@@ -24,6 +24,14 @@
 
 * Code formatter - [prettier](https://prettier.io/)
 
+* JsonWebToken implementation for node.js - [node-jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
+
+* Validator - [validator.js](https://github.com/validatorjs/validator.js)
+
+* Optimized bcrypt in JavaScript - [bcryptjs](https://www.npmjs.com/package/bcryptjs)
+
 * CRUD Operations
 
 * API Features: Filtering, Sorting, Limiting Fields and Pagination
+
+* Error Global Handler
