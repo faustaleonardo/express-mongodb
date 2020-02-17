@@ -30,9 +30,21 @@ const sendErrorProd = (err, res) => {
   }
 };
 
-const handleCastError = error => {
-  const value = `Invalid ${error.path}: ${error.value}`;
-  return new AppError(value, 400);
+const handleCastErrorDB = error => {
+  const message = `Invalid ${error.path}: ${error.value}`;
+  return new AppError(message, 400);
+};
+
+const handleDuplicateFieldsDB = error => {
+  const value = error.errmsg.match(/(["'])(?:(?=(\\?))\2.)*?\1/)[0];
+  const message = `Duplicate field value: ${value}. Please use another value!`;
+  return new AppError(message, 401);
+};
+
+const handleValidationErrorDB = error => {
+  const errors = Object.values(error.errors).map(el => el.message);
+  const message = errors.join(', ');
+  return new AppError(message, 401);
 };
 
 module.exports = (err, req, res, next) => {
@@ -46,13 +58,14 @@ module.exports = (err, req, res, next) => {
     error.message = err.message;
 
     // CastError
-    if (error.name === 'CastError') {
-      error = handleCastError(error);
-    }
+    if (error.name === 'CastError') error = handleCastErrorDB(error);
 
-    // Duplicate keys
+    // Duplicate Fields
+    if (error.code === 11000) error = handleDuplicateFieldsDB(error);
 
-    // Validation Errors
+    // Validation ErrorsA
+    if (error.name === 'ValidationError')
+      error = handleValidationErrorDB(error);
 
     sendErrorProd(error, res);
   }

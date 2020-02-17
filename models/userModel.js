@@ -23,12 +23,12 @@ const userSchema = new mongoose.Schema({
   },
   passwordConfirm: {
     type: String,
-    required: [true, 'Please confirm your password.'],
+    required: [true, 'Please confirm your password'],
     validate: {
       validator: function(val) {
         return val === this.password;
       },
-      message: 'Your password does not match.'
+      message: 'Your password does not match'
     }
   },
   firstname: {
