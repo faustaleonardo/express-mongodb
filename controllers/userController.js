@@ -62,38 +62,3 @@ exports.deleteUser = catchAsync(async (req, res) => {
     data: null
   });
 });
-
-exports.getYoungUsers = catchAsync(async (req, res) => {
-  const stats = await User.aggregate([
-    {
-      $match: { age: { $lte: 30 } }
-    },
-    {
-      $group: {
-        _id: '$age',
-        numCoders: { $sum: 1 },
-        averageAge: { $avg: '$age' },
-        youngestAge: { $min: '$age' },
-        oldestAge: { $max: '$age' }
-      }
-    },
-    {
-      $addFields: { age: '$_id' }
-    },
-    {
-      $project: {
-        _id: 0
-      }
-    },
-    {
-      $sort: { youngestAge: 1 }
-    }
-  ]);
-
-  res.status(200).json({
-    status: 'success',
-    data: {
-      stats
-    }
-  });
-});
